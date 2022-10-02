@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+<!--    <template v-if="number === 1">-->
+<!--        <div>1</div>-->
+<!--        <div>2</div>-->
+<!--        <div>3</div>-->
+<!--    </template>-->
+<!--    <div v-else-if="number === 2">Hi</div>-->
+<!--    <div v-else>No</div>-->
+<!--    <button @click="increase">더하기</button> {{number}}-->
+<!--   show-->
+
+    <div v-show="show">Yes</div>
+    <br>
+
+  <button @click="showToggle">더하기</button> {{number}}
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+           number:1,
+           show:false
+        },
+
+        methods:{
+            increase() {
+              this.number +=1;
+          },
+            showToggle() {
+                this.show = !this.show;
+            }
+        },
+
+
+    })
+</script>
+</body>
+</html>

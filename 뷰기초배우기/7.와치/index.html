@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{message}} <br>
+    <button @click="changeMessage">Click</button>
+     {{updated}}
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+            message: '헬로우',
+            updated:'아니오',
+        },
+
+        methods:{
+            changeMessage() {
+                this.message =  '김성훈';
+
+            }
+        },
+        //computed는 함수처럼 ()사용하지않아도됨 변수처럼사용가능
+        //computed 캐싱이 가능하다  메소드는 안됨
+        computed:{
+            reverseMessage() {
+                return this.message.split('').reverse().join('')
+            }
+        },
+        watch:{
+            //데이터가 변경시에 이벤트
+            message(newVal,oldVal){
+                 console.log(newVal,oldVal);
+                 this.updated = '네';
+            }
+        }
+    })
+</script>
+</body>
+</html>

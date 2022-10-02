@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .red{
+            color:Red;
+        }
+        .font-bold{
+            font-weight: bold;
+        }
+        .yellow{
+            color:yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+<!--    font-bold 처럼 '-' 있으면 스트링으로 만들어줘야합니다.-->
+   <div :class="{red: isRed,'font-bold':isBold}">Hello</div>
+<!--    삼항연산자로 만들어 보기  -->
+    <h2 :class="isDone ? 'red' : 'yellow'">삼항연산자</h2>
+
+    <div :style="{color:styleRed,fontSize:styleFont}">Style</div>
+    <button @click ='update'>업데이트</button>
+</div>
+<script>
+    new Vue({
+        el:'#app',
+        data: {
+           isRed:false,
+           isBold:false,
+            isDone: true,
+            styleRed:'red',
+            styleFont:'30px',
+        },
+
+        methods:{
+            update() {
+                this.isRed =  !this.isRed;
+                this.isBold = !this.isBold;
+                this.isDone = !this.isDone
+            }
+        },
+
+
+    })
+</script>
+</body>
+</html>
